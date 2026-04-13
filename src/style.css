@@ -538,7 +538,7 @@ body.light .navbar.shrink { background: rgba(255, 255, 255, 0.98); }
 .footer {
     position: relative;
     background: linear-gradient(180deg, var(--bg-soft), var(--bg));
-    padding: 5rem 2rem 2rem;
+    padding: 5rem 0 2rem;      /* usuń padding poziomy */
     margin-top: 6rem;
     overflow: hidden;
 }
@@ -578,6 +578,7 @@ body.light .navbar.shrink { background: rgba(255, 255, 255, 0.98); }
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;            /* padding wewnętrzny przeniesiony tutaj */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
