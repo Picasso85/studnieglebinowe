@@ -939,6 +939,23 @@ footer {
 
     .menu-icon {
         display: block;
+        margin-left: auto;  /* Wymusza przesunięcie na prawą stronę */
+        font-size: 1.8rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .navbar-inner {
+        padding: 0.5rem 1rem;
+    }
+
+    .theme-toggle {
+        margin-left: 0.5rem;  /* Odstęp między przyciskiem motywu a hamburgerem */
+    }
+
+    /* Zapewnia, że rozwijane menu nie będzie przycięte */
+    .navbar {
+        overflow: visible;
     }
 
     .hero-content h1 {
