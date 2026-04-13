@@ -1,15 +1,15 @@
-/* =========================
-   RESET
-========================= */
+/* =========================================================
+   1. RESET I PODSTAWY
+   ========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =========================
-   ZMIENNE (THEME)
-========================= */
+/* =========================================================
+   2. ZMIENNE (THEME – CIEMNY / JASNY)
+   ========================================================= */
 :root {
     --bg: #0a0f1a;
     --bg-soft: #111827;
@@ -25,7 +25,6 @@
     --shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
 }
 
-/* LIGHT MODE */
 body.light {
     --bg: #f8fafc;
     --bg-soft: #ffffff;
@@ -40,9 +39,9 @@ body.light {
     --border: rgba(0,0,0,0.1);
 }
 
-/* =========================
-   GLOBAL
-========================= */
+/* =========================================================
+   3. GLOBALNE
+   ========================================================= */
 html {
     scroll-behavior: smooth;
 }
@@ -65,7 +64,6 @@ body {
     pointer-events: none;
 }
 
-/* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -77,9 +75,9 @@ body {
     border-radius: 8px;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* =========================================================
+   4. NAVBAR (FIXED)
+   ========================================================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -99,7 +97,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: padding 0.3s ease;
 }
 
 body.light .navbar {
@@ -112,16 +109,14 @@ body.light .navbar {
     background: rgba(10, 15, 26, 0.95);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
-
 .navbar.shrink .navbar-inner {
     padding: 0.3rem 2rem;
 }
-
 body.light .navbar.shrink {
     background: rgba(255, 255, 255, 0.98);
 }
 
-/* LOGO */
+/* Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -134,47 +129,43 @@ body.light .navbar.shrink {
     background-clip: text;
     color: transparent;
 }
-
 .logo img {
     width: 40px;
     height: 40px;
     object-fit: contain;
-    transition: all 0.2s ease;
+        transition: background-color 0.3s ease;
+        background-color: var(--bg);
+        border-radius: 50%;
 }
-
 body.light .logo img {
-    background-color: var(--accent-dark);
+
+    background-color: var(--bg);
     border-radius: 50%;
 }
-
 .navbar.shrink .logo img {
     width: 32px;
     height: 32px;
 }
-
 .logo em {
-    font-style: normal;
+    font-style: bold;
     color: var(--text);
-    font-weight: 500;
+    font-weight: 900;
 }
 
-/* NAV LINKS */
+/* Linki nawigacji */
 .nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
-
 .nav-links a {
     color: var(--text);
     text-decoration: none;
     font-weight: 500;
     opacity: 0.85;
-    transition: opacity 0.2s, color 0.2s;
     position: relative;
     padding-bottom: 4px;
 }
-
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -185,18 +176,17 @@ body.light .logo img {
     background: var(--accent);
     transition: width 0.25s ease;
 }
-
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
 }
-
 .nav-links a:hover {
     opacity: 1;
-    color: var(--accent);
+    scale: 1.4;
+    color: var(--text);
 }
 
-/* BUTTONS */
+/* Przyciski */
 .theme-toggle {
     background: var(--surface);
     border: none;
@@ -205,50 +195,16 @@ body.light .logo img {
     cursor: pointer;
     padding: 0.4rem 0.8rem;
     border-radius: 40px;
-    transition: 0.2s;
 }
-
 .menu-icon {
     display: none;
     font-size: 1.8rem;
     cursor: pointer;
 }
 
-/* SOCIAL BAR */
-.top-socials {
-    position: fixed;
-    top: 47rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    z-index: 999;
-    opacity: 1;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.top-socials a {
-    width: 40px;
-    height: 40px;
-    background: var(--accent);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-
-.top-socials.hide {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-30px) scale(0.85);
-    pointer-events: none;
-}
-
-/* =========================
-   HERO
-========================= */
+/* =========================================================
+   5. HERO
+   ========================================================= */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -257,7 +213,6 @@ body.light .logo img {
     text-align: center;
     padding: 2rem;
 }
-
 .hero-content h1 {
     font-size: 4rem;
     font-weight: 700;
@@ -267,13 +222,11 @@ body.light .logo img {
     color: transparent;
     animation: fadeInUp 2s ease;
 }
-
 .hero-content p {
     font-size: 1.3rem;
     margin-top: 1rem;
     color: var(--text-dim);
 }
-
 .hero-btn {
     margin-top: 2rem;
     display: inline-block;
@@ -283,39 +236,32 @@ body.light .logo img {
     border-radius: 40px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
 }
-
 .hero-btn:hover {
     background: var(--accent-dark);
     transform: scale(1.02);
     box-shadow: 0 10px 20px -5px var(--accent-glow);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* =========================================================
+   6. SEKCJE (OGÓLNE)
+   ========================================================= */
 .section {
     position: relative;
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;        /* więcej przestrzeni */
     max-width: 1400px;
     margin: 0 auto;
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
 }
-
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin: 0 auto 3rem auto;
+    margin: 1rem auto 10rem auto;
     padding: 0.5rem 1.2rem;
     border-radius: 30px;
     width: fit-content;
     background: var(--bg-soft);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-
 .section-title span {
     background: linear-gradient(135deg, var(--accent), #60a5fa);
     -webkit-background-clip: text;
@@ -323,16 +269,14 @@ body.light .logo img {
     color: transparent;
 }
 
-/* =========================
-   OFERTA – KARTY (WYŚRODKOWANE IKONKI)
-========================= */
+/* =========================================================
+   7. OFERTA – KARTY (WYŚRODKOWANE IKONKI)
+   ========================================================= */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 28px;
-    align-items: stretch;
+    gap: 32px;
 }
-
 .service-card {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
@@ -342,37 +286,27 @@ body.light .logo img {
     text-align: center;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 45px -18px var(--accent-glow);
 }
-
 .service-card i {
     font-size: 2.2rem;
     color: var(--accent);
     margin-bottom: 14px;
     display: inline-block;
-    transition: transform 0.25s ease;
 }
-
-.service-card:hover i {
-    transform: translateY(-2px) scale(1.05);
-}
-
 .service-card h3 {
     font-size: 1.4rem;
     margin-bottom: 10px;
     font-weight: 700;
 }
-
 .service-card p {
     color: var(--text-dim);
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 14px;
 }
-
 .service-card ul {
     list-style: none;
     display: flex;
@@ -381,15 +315,12 @@ body.light .logo img {
     margin-top: 10px;
     text-align: left;
 }
-
 .service-card ul li {
     position: relative;
     padding-left: 20px;
     color: var(--text-dim);
     font-size: 0.92rem;
-    transition: transform 0.2s, color 0.2s;
 }
-
 .service-card ul li::before {
     content: "";
     position: absolute;
@@ -400,12 +331,6 @@ body.light .logo img {
     border-radius: 50%;
     background: var(--accent);
 }
-
-.service-card ul li:hover {
-    color: var(--text);
-    transform: translateX(4px);
-}
-
 .price-badge {
     display: inline-block;
     margin-top: 18px;
@@ -416,48 +341,54 @@ body.light .logo img {
     color: var(--accent);
     background: rgba(42,169,255,0.12);
     border: 1px solid var(--accent-glow);
-    transition: 0.3s;
 }
-
 .service-card:hover .price-badge {
     background: var(--accent);
     color: white;
 }
 
-/* =========================
-   REALIZACJE – KARTY (BEZ NACHODZENIA)
-========================= */
+/* =========================================================
+   8. REALIZACJE – KARTY (ZDJĘCIE 50% / TREŚĆ 50%)
+   ========================================================= */
+
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
 }
 
+/* KARTA */
 .project-card {
     position: relative;
     overflow: hidden;
-    cursor: pointer;
     background: var(--card-bg);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
     border-radius: 28px;
     border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     height: 100%;
 }
 
+/* Hover efekt */
 .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px) scale(1.08);
+    box-shadow: 0 35px 60px -25px rgba(0,0,0,0.6);
 }
 
+
+/* Glow pod kursorem */
 .project-card::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(42,169,255,0.25), transparent 60%);
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(42,169,255,0.25),
+        transparent 60%
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -468,43 +399,65 @@ body.light .logo img {
     opacity: 1;
 }
 
+/* OBRAZ */
 .project-image {
-    height: 220px;
     width: 100%;
+    aspect-ratio: 16 / 10;   
+    position: relative;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0;
-    transition: transform 0.5s ease;
+    background-repeat: no-repeat;
+    transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-image {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
+/* OVERLAY (PRO LEVEL) */
+.project-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0,0,0,0.4)
+    );
+}
+
+/* TREŚĆ */
 .project-content {
+    flex: 1;
     position: relative;
     z-index: 2;
     padding: 24px 22px;
-    flex-grow: 1;
     background: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+/* Tytuł */
 .project-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    font-weight: 600;
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+    font-weight: 700;
     line-height: 1.3;
 }
 
+/* Opis */
 .project-content p {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     line-height: 1.5;
     color: var(--text-dim);
+    font-size: 0.95rem;
 }
 
+/* Lista */
 .project-content ul {
     list-style: none;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .project-content ul li {
@@ -512,6 +465,7 @@ body.light .logo img {
     position: relative;
     margin-bottom: 6px;
     color: var(--text-dim);
+    font-size: 0.9rem;
 }
 
 .project-content ul li::before {
@@ -521,20 +475,22 @@ body.light .logo img {
     color: var(--accent);
 }
 
+/* TAGI */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: auto;
 }
 
 .project-tags span {
     font-size: 0.75rem;
-    padding: 4px 10px;
+    padding: 5px 11px;
     border-radius: 20px;
     background: rgba(42,169,255,0.12);
     border: 1px solid var(--accent-glow);
     color: var(--accent);
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .project-tags span:hover {
@@ -543,48 +499,53 @@ body.light .logo img {
     color: white;
 }
 
-/* =========================
-   OPINIE
-========================= */
+/* RESPONSYWNOŚĆ */
+@media (max-width: 600px) {
+    .project-image {
+        min-height: 180px;
+    }
+
+    .project-content {
+        padding: 18px 16px;
+    }
+
+    .project-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* =========================================================
+   9. OPINIE (TESTIMONIALS)
+   ========================================================= */
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
+    margin-top: 2rem;
 }
-
 .testimonial-card {
     background: var(--card-bg);
     backdrop-filter: blur(8px);
     padding: 28px 24px;
     border-radius: 32px;
     border: 1px solid var(--border);
-    transition: transform 0.25s, border-color 0.2s;
 }
-
-.testimonial-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
-}
-
-.testimonial-card i {
+.testimonial-card i.fa-star {
     color: gold;
     font-size: 1.2rem;
     margin-bottom: 12px;
 }
-
 .testimonial-card p {
     font-style: italic;
     color: var(--text-dim);
     margin-bottom: 16px;
     line-height: 1.5;
 }
-
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
 .testimonial-author img {
     width: 48px;
     height: 48px;
@@ -592,34 +553,25 @@ body.light .logo img {
     object-fit: cover;
     border: 2px solid var(--accent);
 }
-
 .testimonial-author strong {
     color: var(--text);
 }
 
-/* =========================
-   FAQ
-========================= */
+/* =========================================================
+   10. FAQ
+   ========================================================= */
 .faq-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-
 .faq-item {
     background: var(--card-bg);
     backdrop-filter: blur(4px);
     border-radius: 24px;
     padding: 24px;
     border: 1px solid var(--border);
-    transition: border-color 0.2s, box-shadow 0.2s;
 }
-
-.faq-item:hover {
-    border-color: var(--accent);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
 .faq-item h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
@@ -628,21 +580,19 @@ body.light .logo img {
     gap: 10px;
     color: var(--accent);
 }
-
 .faq-item p {
     color: var(--text-dim);
     line-height: 1.5;
 }
 
-/* =========================
-   KONTAKT
-========================= */
+/* =========================================================
+   11. KONTAKT
+   ========================================================= */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
 }
-
 .contact-form {
     background: var(--card-bg);
     backdrop-filter: blur(12px);
@@ -651,7 +601,6 @@ body.light .logo img {
     padding: 2.5rem;
     box-shadow: var(--shadow);
 }
-
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -662,16 +611,7 @@ body.light .logo img {
     border-radius: 24px;
     color: var(--text);
     font-size: 1rem;
-    transition: border 0.2s, box-shadow 0.2s;
 }
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-glow);
-}
-
 .contact-form button {
     width: 100%;
     padding: 1rem;
@@ -681,33 +621,23 @@ body.light .logo img {
     border: none;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.contact-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 20px -6px var(--accent-glow);
-}
-
 .contact-info {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
-
 .contact-info p {
     display: flex;
     align-items: center;
     gap: 12px;
     color: var(--text-dim);
 }
-
 .contact-info i {
     width: 24px;
     color: var(--accent);
 }
-
 #map {
     height: 100%;
     min-height: 350px;
@@ -716,19 +646,416 @@ body.light .logo img {
     border: 1px solid var(--border);
 }
 
-/* =========================
-   STOPKA
-========================= */
-footer {
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid var(--line);
-    color: var(--text-dim);
+/* =========================================================
+   FOOTER – NEXT LEVEL PRO MAX (STRIPE / VERCEL STYLE)
+   ========================================================= */
+
+.footer {
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-soft), var(--bg));
+    padding: 5rem 2rem 2rem;
+    margin-top: 6rem;
+    overflow: hidden;
+}
+
+/* 🔥 ANIMATED BACKGROUND GLOW */
+.footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 20% 0%,
+        rgba(42,169,255,0.18),
+        transparent 50%
+    ),
+    radial-gradient(
+        circle at 80% 20%,
+        rgba(0,119,204,0.12),
+        transparent 55%
+    );
+    animation: bgFloat 10s ease-in-out infinite alternate;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+@keyframes bgFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(20px);
+    }
 }
 
 /* =========================
-   WHATSAPP
-========================= */
+   LOGO (FLOAT PREMIUM)
+   ========================= */
+
+.footer-logo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.footer-logo img {
+    width: 150px;
+    opacity: 0.7;
+    animation: floatLogo 5s ease-in-out infinite;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
+.footer-logo img:hover {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+@keyframes floatLogo {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* =========================
+   GRID
+   ========================= */
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   COLUMN CARD EFFECT
+   ========================= */
+
+.footer-col {
+    padding: 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.footer-col:hover {
+    transform: translateY(-6px);
+}
+
+/* =========================
+   TITLES
+   ========================= */
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: var(--accent);
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+/* underline glow */
+.footer-col h4::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.7rem;
+    transition: transform 0.25s ease;
+}
+
+.footer-col ul li:hover {
+    transform: translateX(6px);
+}
+
+.footer-col ul li:active {
+    transform: translateX(3px);
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: var(--text-dim);
+    transition: 0.25s ease;
+    position: relative;
+}
+
+/* hover underline animation */
+.footer-col ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 1px;
+    background: var(--accent);
+    transition: 0.3s ease;
+}
+
+.footer-col ul li a:active {
+    color: var(--bg);
+    background-color: transparent;
+}
+
+.footer-col ul li a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.footer-col p {
+    margin-bottom: 0.8rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease;
+}
+
+.footer-col p:hover {
+    transform: translateX(5px);
+}
+
+.footer-col i {
+    color: var(--accent);
+    width: 20px;
+}
+
+/* contact links */
+.footer-col a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+.footer-col a:active {
+    color: var(--bg);
+    background-color: transparent;
+}
+
+/* =========================
+   SOCIAL ICONS
+   ========================= */
+
+.social-icons {
+    display: flex;
+    gap: 14px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    color: var(--text);
+    background-color: #0a0f1a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+    line-height: 1;
+
+    font-size: 16px; /* stabilizuje ikony */
+}
+
+.social-icons a:focus, .social-icons a:active {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+body.light .social-icons a {
+    background-color: #f8fafc;
+}
+
+/* dodatkowe dopalenie centrowania ikon FontAwesome */
+.social-icons a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* hover (opcjonalnie zostaje czytelny efekt) */
+.social-icons a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(42,169,255,0.25);
+    color: var(--accent);
+}
+
+/* delikatny “shine effect” */
+.social-icons a::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255,255,255,0.25),
+        transparent 70%
+    );
+    transform: rotate(25deg);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.social-icons a:hover::after {
+    opacity: 1;
+    animation: shine 0.8s ease;
+}
+
+@keyframes shine {
+    from {
+        transform: translateX(-30%) rotate(25deg);
+    }
+    to {
+        transform: translateX(30%) rotate(25deg);
+    }
+}
+
+/* =========================
+   BOTTOM BAR
+   ========================= */
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* =========================
+   ANIMATION ON LOAD
+   ========================= */
+
+.footer-container > div {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadeUp 0.8s forwards;
+}
+
+.footer-container > div:nth-child(1) { animation-delay: 0.1s; }
+.footer-container > div:nth-child(2) { animation-delay: 0.2s; }
+.footer-container > div:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* =========================
+   ANIMATION ON LOAD
+   ========================= */
+
+.footer-container > div {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+}
+
+.footer-container > div:nth-child(1) { animation-delay: 0.1s; }
+.footer-container > div:nth-child(2) { animation-delay: 0.2s; }
+.footer-container > div:nth-child(3) { animation-delay: 0.3s; }
+.footer-container > div:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   13. WHATSAPP – PRZYCISK STAŁY
+   ========================================================= */
 .whatsapp-btn {
     position: fixed;
     bottom: 25px;
@@ -742,19 +1069,16 @@ footer {
     justify-content: center;
     font-size: 2rem;
     color: white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, background 0.2s;
     z-index: 999;
 }
-
 .whatsapp-btn:hover {
     transform: scale(1.1);
     background: #20b859;
 }
 
-/* =========================
-   ANIMACJE
-========================= */
+/* =========================================================
+   14. ANIMACJE
+   ========================================================= */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -766,9 +1090,9 @@ footer {
     }
 }
 
-/* =========================
-   RESPONSYWNOSĆ
-========================= */
+/* =========================================================
+   15. RESPONSYWNOSĆ (MEDIA QUERIES)
+   ========================================================= */
 @media (max-width: 800px) {
     .navbar-inner {
         padding: 0.5rem 1rem;
@@ -794,7 +1118,7 @@ footer {
         transition: right 0.3s ease-in-out;
         z-index: 999;
         gap: 1.5rem;
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        box-shadow: -5px 0 20px rgba(0,0,0,0.2);
     }
     .nav-links a {
         font-size: 1.2rem;
@@ -810,19 +1134,26 @@ footer {
         grid-template-columns: 1fr;
     }
     .section {
-        padding: 4rem 1.5rem;
+        padding: 5rem 1.5rem;
     }
     .section-title {
         font-size: 2rem;
     }
-    .projects-grid {
-        gap: 20px;
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
-    .project-image {
-        height: 190px;
+    .footer-logo {
+        justify-content: center;
+        margin-bottom: 1rem;
     }
-    .project-content {
-        padding: 18px 16px;
+
+    .footer-logo img {
+        display: block;
+        position: absolute;
+        margin: auto;
+        z-index: 999;
+        width: 200px;
     }
 }
 
@@ -840,22 +1171,11 @@ footer {
     .menu-icon {
         font-size: 1.6rem;
     }
-    .theme-toggle {
-        padding: 0.3rem 0.6rem;
-        font-size: 1rem;
-    }
-    .hero {
-        padding: 1.5rem;
-    }
     .hero-content h1 {
         font-size: 2rem;
     }
     .hero-content p {
         font-size: 1rem;
-    }
-    .hero-btn {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.95rem;
     }
     .section {
         padding: 3rem 1rem;
@@ -863,27 +1183,12 @@ footer {
     .section-title {
         font-size: 1.6rem;
     }
-    .cards-grid {
-        gap: 16px;
-    }
-    .service-card {
-        padding: 18px;
-    }
-    .service-card h3 {
-        font-size: 1.2rem;
-    }
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 24px;
     }
-    .project-image {
-        height: 180px;
-    }
-    .project-content {
-        padding: 16px 14px;
-    }
-    .project-content h3 {
-        font-size: 1.25rem;
+    .cards-grid {
+        gap: 20px;
     }
     .contact-form {
         padding: 1.5rem;
@@ -895,6 +1200,17 @@ footer {
         bottom: 16px;
         right: 16px;
     }
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links ul, .footer-contact p, .social-icons {
+        justify-content: center;
+    }
+    .footer-contact p {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 400px) {
@@ -903,81 +1219,21 @@ footer {
     }
     .section-title {
         font-size: 1.4rem;
-        margin-bottom: 1.5rem;
     }
     .hero-content h1 {
         font-size: 1.7rem;
     }
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-    .hero-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.85rem;
-    }
-    .logo {
-        font-size: 1rem;
-    }
-    .menu-icon {
-        font-size: 1.4rem;
-    }
     .service-card {
         padding: 14px;
-        border-radius: 18px;
     }
     .service-card h3 {
         font-size: 1.05rem;
-    }
-    .service-card p {
-        font-size: 0.85rem;
-    }
-    .service-card ul li {
-        font-size: 0.8rem;
-    }
-    .price-badge {
-        font-size: 0.75rem;
-        padding: 4px 10px;
-    }
-    .project-image {
-        height: 160px;
     }
     .project-content {
         padding: 14px 12px;
     }
     .project-content h3 {
         font-size: 1.15rem;
-    }
-    .project-content p {
-        font-size: 0.85rem;
-    }
-    .project-content ul li {
-        font-size: 0.75rem;
-    }
-    .project-tags span {
-        font-size: 0.65rem;
-        padding: 2px 6px;
-    }
-    .testimonial-card {
-        padding: 18px 16px;
-    }
-    .faq-item {
-        padding: 16px;
-    }
-    .contact-form {
-        padding: 1rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 0.85rem;
-        padding: 0.7rem 0.9rem;
-    }
-    .contact-form button {
-        font-size: 0.85rem;
-        padding: 0.8rem;
-    }
-    #map {
-        min-height: 220px;
-        border-radius: 20px;
     }
     .whatsapp-btn {
         width: 46px;
@@ -986,13 +1242,14 @@ footer {
         bottom: 12px;
         right: 12px;
     }
-    footer {
-        padding: 1.2rem;
-        font-size: 0.75rem;
+    .footer {
+        padding: 2rem 1rem 1rem;
     }
 }
 
-/* Dotykowe – wyłączenie efektów hover */
+/* =========================================================
+   16. POPRAWKI DLA URZĄDZEŃ DOTYKOWYCH
+   ========================================================= */
 @media (hover: none) and (pointer: coarse) {
     .service-card:active {
         transform: translateY(-4px);
@@ -1005,7 +1262,98 @@ footer {
     }
 }
 
-/* Globalne tranzycje */
+/* =========================================================
+   17. GLOBALNE PRZEJŚCIA
+   ========================================================= */
 a, button, .service-card, .testimonial-card, .faq-item, .project-card {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* =========================================================
+   18. PATCH – FIXY + PERFORMANCE + UX
+   ========================================================= */
+
+/* 1. BACKDROP FILTER FALLBACK */
+@supports not (backdrop-filter: blur(10px)) {
+    .navbar,
+    .service-card,
+    .project-card,
+    .faq-item,
+    .contact-form {
+        background: var(--bg-soft);
+    }
+}
+
+/* 2. FIX: footer logo bug (MOBILE) */
+@media (max-width: 800px) {
+    .footer-logo img {
+        position: static !important;
+        margin: 0 auto;
+        display: block;
+        width: 140px;
+    }
+}
+
+/* 3. PERFORMANCE – mniej lagów przy hover */
+.service-card,
+.project-card {
+    will-change: transform;
+}
+
+/* 4. LEPSZE BUTTONY (UX + konwersja) */
+.hero-btn {
+    transition: all 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 25px -10px var(--accent-glow);
+}
+
+/* 5. FIX: NAVBAR SKOK */
+.navbar {
+    padding: 0;
+}
+
+/* 6. FOCUS (SEO + accessibility) */
+.navbar a:focus,
+button:active,
+input:active,
+textarea:active {
+    background-color: var(--accent);
+    border-radius: 10px 25% 25% 50px;
+    height: 10px;
+    padding: 5px 10px 20px 14px;
+    color: var(--text);
+}
+
+/* 7. SMOOTH ANIMATIONS */
+.service-card:hover,
+.project-card:hover {
+    transform: translateY(-6px);
+    color: var(--text);
+}
+
+/* 8. SCROLL PERFORMANCE */
+html {
+    scroll-padding-top: 80px;
+}
+
+/* 9. LEPSZE INPUTY */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+/* 10. WHATSAPP BOOST */
+.whatsapp-btn {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: pulseWhats 2s infinite;
+}
+
+@keyframes pulseWhats {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }

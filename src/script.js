@@ -81,7 +81,7 @@ if (canvas) {
     }
 
     function drawWaves() {
-        waveOffset += 0.02;
+        waveOffset += 0.2;
 
         for (let w of waves) {
             ctx.beginPath();
@@ -138,22 +138,41 @@ if (sections.length) {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('active');
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.5 });
 
     sections.forEach(section => observer.observe(section));
 }
 
 // ===================== THEME =====================
+// ===================== THEME TOGGLE Z IKNĄ SŁOŃCA =====================
 const themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') document.body.classList.add('light');
+const themeIcon = themeToggle?.querySelector('i');
+
+if (themeToggle && themeIcon) {
+    // Sprawdź zapisany motyw
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
 
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('light');
-        localStorage.setItem('theme',
-            document.body.classList.contains('light') ? 'light' : 'dark'
-        );
+        const isLight = document.body.classList.contains('light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        
+        // Zmiana ikony: w trybie ciemnym pokazujemy słońce (bo można przełączyć na jasny)
+        if (isLight) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        } else {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
     });
 }
 
