@@ -976,122 +976,18 @@ footer {
 }
 
 /* Telefony (poniżej 500px) */
-@media (max-width: 500px) {
-    
-    /* Nawigacja */
-    .navbar {
-        padding: 0.5rem 0.8rem;
+/* Bardzo małe telefony (poniżej 400px) */
+@media (max-width: 400px) {
+    /* Ogólne sekcje */
+    .section {
+        padding: 2rem 0.8rem;
     }
-    .navbar-inner {
-        padding: 0.5rem 1rem;
-    }
-    .nav-links {
-        width: 85%;
-        padding: 1.5rem;
-        top: 65px;
-    }
-    .logo {
-        font-size: 1.2rem;
-    }
-    .logo img {
-        width: 32px;
-        height: 32px;
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
     }
 
     /* Hero */
-    .hero {
-        padding: 1.5rem;
-    }
-    .hero-content h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-    }
-    .hero-content p {
-        font-size: 1rem;
-    }
-    .hero-btn {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.95rem;
-    }
-
-    /* Sekcje */
-    .section {
-        padding: 3.5rem 1rem;
-    }
-    .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 2rem;
-        border-radius: 20px;
-        padding: 0.3rem 0.8rem;
-    }
-
-    /* Wszystkie gridy przechodzą na 1 kolumnę */
-    .cards-grid,
-    .gallery,
-    .testimonials-grid,
-    .faq-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    /* Karty usług */
-    .service-card {
-        padding: 18px;
-        border-radius: 22px;
-    }
-    .service-card h3 {
-        font-size: 1.2rem;
-    }
-    .service-card p {
-        font-size: 0.9rem;
-    }
-    .service-card ul li {
-        font-size: 0.85rem;
-    }
-    .price-badge {
-        font-size: 0.8rem;
-        padding: 5px 10px;
-    }
-
-    /* Galeria */
-    .gallery-item {
-        aspect-ratio: 1 / 1;
-    }
-
-    /* Formularz kontaktowy */
-    .contact-form {
-        padding: 1.5rem;
-        border-radius: 24px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-        padding: 0.8rem 1rem;
-        font-size: 0.95rem;
-    }
-    .contact-form button {
-        padding: 0.9rem;
-        font-size: 0.95rem;
-    }
-
-    /* WhatsApp */
-    .whatsapp-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.4rem;
-        bottom: 20px;
-        right: 20px;
-    }
-}
-
-/* Bardzo małe telefony (poniżej 400px) */
-@media (max-width: 400px) {
-    .section {
-        padding: 2.5rem 0.8rem;
-    }
-    .section-title {
-        font-size: 1.4rem;
-    }
     .hero-content h1 {
         font-size: 1.7rem;
     }
@@ -1102,12 +998,20 @@ footer {
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
     }
+
+    /* Logo i nawigacja */
     .logo {
         font-size: 1rem;
     }
     .menu-icon {
         font-size: 1.6rem;
     }
+    .theme-toggle {
+        padding: 0.3rem 0.6rem;
+        font-size: 1rem;
+    }
+
+    /* Karty usług (oferta) */
     .service-card {
         padding: 14px;
         border-radius: 18px;
@@ -1126,12 +1030,55 @@ footer {
         font-size: 0.75rem;
         padding: 4px 10px;
     }
-    .gallery {
-        gap: 12px;
+
+    /* GALERIA (realizacje) – POPRAWA KART */
+    .projects-grid {
+        gap: 16px;
     }
-    .gallery-item {
-        border-radius: 18px;
+    .project-card {
+        border-radius: 20px;
     }
+    .project-image {
+        height: 160px;  /* mniejsza wysokość na małym ekranie */
+    }
+    .project-content {
+        padding: 16px 14px;
+    }
+    .project-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    .project-content p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+    .project-content ul li {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+    .project-tags span {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
+    /* Pozostałe sekcje */
+    .testimonial-card {
+        padding: 18px 16px;
+    }
+    .testimonial-card p {
+        font-size: 0.85rem;
+    }
+    .faq-item {
+        padding: 16px;
+    }
+    .faq-item h3 {
+        font-size: 1rem;
+    }
+    .faq-item p {
+        font-size: 0.85rem;
+    }
+
+    /* Formularz kontaktowy */
     .contact-form {
         padding: 1.2rem;
     }
@@ -1144,12 +1091,29 @@ footer {
         font-size: 0.85rem;
         padding: 0.8rem;
     }
+    .contact-info p {
+        font-size: 0.85rem;
+    }
+
+    /* Mapa */
+    #map {
+        min-height: 250px;
+        border-radius: 24px;
+    }
+
+    /* WhatsApp */
     .whatsapp-btn {
         width: 46px;
         height: 46px;
         font-size: 1.2rem;
-        bottom: 15px;
-        right: 15px;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    /* Stopka */
+    footer {
+        padding: 1.5rem;
+        font-size: 0.8rem;
     }
 }
 
