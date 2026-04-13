@@ -306,3 +306,21 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 });
+
+// Wymuszenie poprawnego układu po załadowaniu (fix rozjeżdżania)
+window.addEventListener('load', function() {
+    // Delikatne przeliczenie layoutu
+    document.body.style.display = 'none';
+    setTimeout(() => {
+        document.body.style.display = '';
+    }, 10);
+    
+    // Wymuszenie repaintu dla kart
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+        card.style.transform = 'translateZ(0)';
+        setTimeout(() => {
+            card.style.transform = '';
+        }, 20);
+    });
+});

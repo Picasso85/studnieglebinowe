@@ -815,3 +815,43 @@ footer {
 a, button, .service-card, .testimonial-card, .faq-item, .project-card {
     transition: all 0.3s ease;
 }
+
+/* =========================
+   STABILIZACJA UKŁADU – ZAPOBIEGANIE ROZJEŻDŻANIU
+========================= */
+.projects-grid,
+.cards-grid,
+.testimonials-grid,
+.faq-grid,
+.contact-grid {
+    contain: layout style; /* izoluje układ, przyspiesza obliczenia */
+}
+
+.project-card,
+.service-card,
+.testimonial-card,
+.faq-item {
+    break-inside: avoid; /* zapobiega łamaniu w kolumnach */
+    page-break-inside: avoid;
+}
+
+/* Wymuszenie stabilnej wysokości obrazków przed załadowaniem */
+.project-image {
+    background-color: var(--bg-soft); /* tło zastępcze */
+    background-size: cover;
+    background-position: center;
+    min-height: 160px; /* zapas na małych ekranach */
+}
+
+/* Zapobiega przesuwaniu się treści pod wpływem transform */
+.project-card,
+.project-image {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Dla całej sekcji realizacje – blokada przewijania w poziomie */
+#realizacje {
+    overflow-x: hidden;
+    width: 100%;
+}
