@@ -1208,9 +1208,33 @@ body.light .social-icons a {
     .footer-links ul, .footer-contact p, .social-icons {
         justify-content: center;
     }
+    /* kontakt w footerze */
+    .footer-contact {
+        text-align: center;
+    }
+
+    .footer-contact h4 {
+        text-align: center;
+    }
+
     .footer-contact p {
+        justify-content: center; /* ikona + tekst na środku */
+        align-items: center;
+    }
+
+    .footer-contact i {
+        margin: 0 auto;
+    }
+
+    /* opcjonalnie: wyrównanie całej sekcji social */
+    .footer-social {
+        text-align: center;
+    }
+
+    .social-icons {
         justify-content: center;
     }
+
 }
 
 @media (max-width: 400px) {
