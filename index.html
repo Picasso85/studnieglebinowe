@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Studnie Głębinowe Oświęcim | Wiercenia i pompy</title>
+    <meta name="description" content="Profesjonalne studnie głębinowe, pompy głębinowe, odwierty studni w Oświęcimiu i okolicy.">
+    <link rel="icon" type="image/png" href="assets/logo/white.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <canvas id="waterCanvas"></canvas>
+
+    <!-- 🔵 NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-inner">
+
+            <div class="logo">
+                <img src="assets/logo/logo.svg" class="logo-img">
+                <span>Studnie <em>Głębinowe</em> Oświęcim</span>
+            </div>
+
+            <div class="menu-icon" id="menuIcon">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Start</a>
+                <a href="#oferta">Oferta</a>
+                <a href="#realizacje">Realizacje</a>
+                <a href="#opinie">Opinie</a>
+                <a href="#faq">FAQ</a>
+                <a href="#kontakt">Kontakt</a>
+
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- 📞 TELEFON -->
+                <div class="nav-contact">
+                    <a href="tel:+48123456789">
+                        <i class="fas fa-phone"></i> +48 123 456 789
+                    </a>
+                </div>
+            </nav>
+
+        </div>
+    </header>  
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Czysta woda prosto z głębi ziemi</h1>
+            <p>Profesjonalne studnie głębinowe w Oświęcimiu i okolicach</p>
+            <a href="#kontakt" class="hero-btn">Skontaktuj się <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+    </section>
+
+    <section id="oferta" class="section slide-left">
+        <div class="section-title"><span>Co oferujemy?</span></div>
+        <div class="cards-grid">
+            <div class="service-card">
+                <i class="fas fa-hard-hat"></i>
+                <h3>Odwierty studni</h3>
+                <p>Wiercenia do głębokości 120m, badania geologiczne i dobór parametrów.</p>
+                <ul>
+                    <li>Wiercenia mechaniczne</li>
+                    <li>Badania geologiczne</li>
+                    <li>Projektowanie studni</li>
+                </ul>
+                <span class="price-badge">od 3500 zł</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-water"></i>
+                <h3>Pompy głębinowe</h3>
+                <p>Montaż nowoczesnych pomp o wysokiej wydajności i energooszczędności.</p>
+                <ul>
+                    <li>Dobór pompy</li>
+                    <li>Instalacja</li>
+                    <li>Serwis gwarancyjny</li>
+                </ul>
+                <span class="price-badge">od 1200 zł</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-flask"></i>
+                <h3>Badanie wody</h3>
+                <p>Analiza mikrobiologiczna i chemiczna – gwarancja czystości.</p>
+                <ul>
+                    <li>Badanie mikrobiologiczne</li>
+                    <li>Analiza chemiczna</li>
+                    <li>Raporty z badań</li>
+                </ul>
+                <span class="price-badge">od 250 zł</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Serwis i konserwacja</h3>
+                <p>Przeglądy, czyszczenie, wymiana pomp – pełna obsługa posprzedażna.</p>
+                <ul>
+                    <li>Przeglądy techniczne</li>
+                    <li>Czyszczenie instalacji</li>
+                    <li>Wymiana pomp</li>
+                </ul>
+                <span class="price-badge">od 300 zł</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Serwis i konserwacja</h3>
+                <p>Przeglądy, czyszczenie, wymiana pomp – pełna obsługa posprzedażna.</p>
+                <ul>
+                    <li>Przeglądy techniczne</li>
+                    <li>Czyszczenie instalacji</li>
+                    <li>Wymiana pomp</li>
+                </ul>
+                <span class="price-badge">od 300 zł</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Serwis i konserwacja</h3>
+                <p>Przeglądy, czyszczenie, wymiana pomp – pełna obsługa posprzedażna.</p>
+                <ul>
+                    <li>Przeglądy techniczne</li>
+                    <li>Czyszczenie instalacji</li>
+                    <li>Wymiana pomp</li>
+                </ul>
+                <span class="price-badge">od 300 zł</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Serwis i konserwacja</h3>
+                <p>Przeglądy, czyszczenie, wymiana pomp – pełna obsługa posprzedażna.</p>
+                <ul>
+                    <li>Przeglądy techniczne</li>
+                    <li>Czyszczenie instalacji</li>
+                    <li>Wymiana pomp</li>
+                </ul>
+                <span class="price-badge">od 300 zł</span>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Serwis i konserwacja</h3>
+                <p>Przeglądy, czyszczenie, wymiana pomp – pełna obsługa posprzedażna.</p>
+                <ul>
+                    <li>Przeglądy techniczne</li>
+                    <li>Czyszczenie instalacji</li>
+                    <li>Wymiana pomp</li>
+                </ul>
+                <span class="price-badge">od 300 zł</span>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="realizacje" class="section">
+  <h2 class="section-title"><span>Nasze realizacje</span></h2>
+  <div class="projects-grid">
+
+    <!-- 1. Ogród Amsterdam -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/15/400/300')"></div>
+      <div class="project-content">
+        <h3>Modernizacja ogrodu – Amsterdam</h3>
+        <p>Kompleksowy projekt ogrodu premium z systemem automatycznego nawadniania i oświetleniem LED.</p>
+        <ul>
+          <li>Projekt koncepcyjny</li>
+          <li>Bruk + nawierzchnie</li>
+          <li>System nawadniania</li>
+          <li>Oświetlenie LED</li>
+        </ul>
+        <div class="project-tags"><span>Ogród</span><span>Bruk</span><span>Smart</span></div>
+      </div>
+    </div>
+
+    <!-- 2. Taras Rotterdam -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/20/400/300')"></div>
+      <div class="project-content">
+        <h3>Taras premium – Rotterdam</h3>
+        <p>Nowoczesna strefa relaksu z pergolą i oświetleniem ambientowym.</p>
+        <ul>
+          <li>Taras kompozytowy</li>
+          <li>Pergola aluminiowa</li>
+          <li>Strefa chill</li>
+          <li>Lighting design</li>
+        </ul>
+        <div class="project-tags"><span>Taras</span><span>Design</span><span>Premium</span></div>
+      </div>
+    </div>
+
+    <!-- 3. Aleja Haga -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/104/400/300')"></div>
+      <div class="project-content">
+        <h3>Nowoczesna aleja – Haga</h3>
+        <p>Reprezentacyjny podjazd i chodniki z kostki granitowej oraz iluminacja led.</p>
+        <ul>
+          <li>Bruk granitowy</li>
+          <li>Podświetlane stopnie</li>
+          <li>Odwodnienie liniowe</li>
+          <li>Strefa wjazdowa</li>
+        </ul>
+        <div class="project-tags"><span>Bruk</span><span>Oświetlenie</span><span>Premium</span></div>
+      </div>
+    </div>
+
+    <!-- 4. Zielona ściana Utrecht -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/127/400/300')"></div>
+      <div class="project-content">
+        <h3>Zielona ściana – Utrecht</h3>
+        <p>Pionowy ogród z automatycznym systemem nawadniania i doborem roślin zimozielonych.</p>
+        <ul>
+          <li>Konstrukcja modułowa</li>
+          <li>Nawadnianie kropelkowe</li>
+          <li>Oświetlenie LED grow</li>
+          <li>Monitoring wilgotności</li>
+        </ul>
+        <div class="project-tags"><span>Zieleń</span><span>Smart</span><span>Design</span></div>
+      </div>
+    </div>
+
+    <!-- 5. Patio Eindhoven -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/29/400/300')"></div>
+      <div class="project-content">
+        <h3>Patio z kominkiem – Eindhoven</h3>
+        <p>Strefa wypoczynkowa z paleniskiem gazowym i meblami modułowymi.</p>
+        <ul>
+          <li>Nawierzchnia z płyt</li>
+          <li>Kominek ogrodowy</li>
+          <li>Oświetlenie nastrojowe</li>
+          <li>Zadaszenie bioklimatyczne</li>
+        </ul>
+        <div class="project-tags"><span>Patio</span><span>Ognisko</span><span>Relax</span></div>
+      </div>
+    </div>
+
+    <!-- 6. Ogród sensoryczny Breda -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/96/400/300')"></div>
+      <div class="project-content">
+        <h3>Ogród sensoryczny – Breda</h3>
+        <p>Projekt dla dzieci i seniorów z elementami dotykowymi i zapachowymi.</p>
+        <ul>
+          <li>Ścieżki fakturowe</li>
+          <li>Rośliny aromatyczne</li>
+          <li>Elementy wodne</li>
+          <li>Ławki z drewna</li>
+        </ul>
+        <div class="project-tags"><span>Sensoryczny</span><span>Eko</span><span>Inclusive</span></div>
+      </div>
+    </div>
+
+    <!-- 7. NOWOŚĆ: Odwiert studni głębinowej – Delft -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/222/400/300')"></div>
+      <div class="project-content">
+        <h3>Odwiert studni głębinowej – Delft</h3>
+        <p>Profesjonalne wiercenie pod instalacje wodne i geotermalne. Głębokość do 120 m z pełną dokumentacją.</p>
+        <ul>
+          <li>Wiercenie rotacyjne</li>
+          <li>Rury osłonowe PCV/stal</li>
+          <li>Pompa głębinowa + sterownik</li>
+          <li>Badanie wydajności</li>
+        </ul>
+        <div class="project-tags"><span>Odwiert</span><span>Woda</span><span>Geotermia</span></div>
+      </div>
+    </div>
+
+    <!-- 8. NOWOŚĆ: Wiercenie pod pompę ciepła – Lejda -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/240/400/300')"></div>
+      <div class="project-content">
+        <h3>Wiercenie pod pompę ciepła – Lejda</h3>
+        <p>Odwiert pionowy do 80 m pod instalację gruntowej pompy ciepła z wymiennikiem U‑rurka.</p>
+        <ul>
+          <li>Odwiert o średnicy 130 mm</li>
+          <li>Wymiennik geotermalny</li>
+          <li>Wypełnienie bentonitem</li>
+          <li>Świadectwo charakterystyki</li>
+        </ul>
+        <div class="project-tags"><span>Geotermia</span><span>Pompa ciepła</span><span>Eko</span></div>
+      </div>
+    </div>
+    <!-- 9. NOWOŚĆ: Wiercenie pod pompę ciepła – Lejda -->
+    <div class="project-card">
+      <div class="project-image" data-parallax style="background-image:url('https://picsum.photos/id/240/400/300')"></div>
+      <div class="project-content">
+        <h3>Wiercenie pod pompę ciepła – Lejda</h3>
+        <p>Odwiert pionowy do 80 m pod instalację gruntowej pompy ciepła z wymiennikiem U‑rurka.</p>
+        <ul>
+          <li>Odwiert o średnicy 130 mm</li>
+          <li>Wymiennik geotermalny</li>
+          <li>Wypełnienie bentonitem</li>
+          <li>Świadectwo charakterystyki</li>
+        </ul>
+        <div class="project-tags"><span>Geotermia</span><span>Pompa ciepła</span><span>Eko</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- NOWA SEKCJA: OPINIE KLIENTÓW -->
+    <section id="opinie" class="section slide-left">
+        <div class="section-title"><span>Opinie klientów</span></div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <p>„Szybko, profesjonalnie i w dobrej cenie. Studnia działa bez zarzutu, woda krystalicznie czysta.”</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Klient">
+                    <strong>Jan Kowalski</strong>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <p>„Polecam serwis – szybka diagnoza i wymiana pompy. Fachowcy na miejscu.”</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Klientka">
+                    <strong>Anna Nowak</strong>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <p>„Odwiert wykonany terminowo, ekipa uprzejma i kompetentna. Wszystko zgodnie z umową.”</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Klient">
+                    <strong>Piotr Wiśniewski</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOWA SEKCJA: FAQ -->
+    <section id="faq" class="section slide-right">
+        <div class="section-title"><span>Najczęściej zadawane pytania</span></div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3><i class="fas fa-question-circle"></i> Jak głęboko trzeba wiercić?</h3>
+                <p>Głębokość zależy od warunków geologicznych. Najczęściej 20–80 m, ale wykonujemy odwierty do 120 m.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-clock"></i> Ile trwa wykonanie studni?</h3>
+                <p>Standardowy odwiert wraz z obudową to 2–4 dni robocze, w zależności od terenu.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-file-alt"></i> Czy potrzebne jest pozwolenie?</h3>
+                <p>Do 30 m głębokości nie wymaga pozwolenia wodnoprawnego. Pomagamy w formalnościach.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-tint"></i> Jak sprawdzić jakość wody?</h3>
+                <p>Oferujemy kompleksowe badania laboratoryjne – fizykochemiczne i mikrobiologiczne.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-question-circle"></i> Jak głęboko trzeba wiercić?</h3>
+                <p>Głębokość zależy od warunków geologicznych. Najczęściej 20–80 m, ale wykonujemy odwierty do 120 m.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-clock"></i> Ile trwa wykonanie studni?</h3>
+                <p>Standardowy odwiert wraz z obudową to 2–4 dni robocze, w zależności od terenu.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-file-alt"></i> Czy potrzebne jest pozwolenie?</h3>
+                <p>Do 30 m głębokości nie wymaga pozwolenia wodnoprawnego. Pomagamy w formalnościach.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-tint"></i> Jak sprawdzić jakość wody?</h3>
+                <p>Oferujemy kompleksowe badania laboratoryjne – fizykochemiczne i mikrobiologiczne.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="section slide-left">
+        <div class="section-title"><span>Skontaktuj się z nami</span></div>
+        <div class="contact-grid">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" name="name" placeholder="Imię i nazwisko" required>
+                    <input type="tel" name="phone" placeholder="Numer telefonu" required>
+                    <textarea name="message" rows="4" placeholder="Opisz czego potrzebujesz (np. odwiert, pompa, serwis)"></textarea>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Wyślij zapytanie</button>
+                </form>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone-alt"></i> +48 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> biuro@studnie-oswiecim.pl</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Oświęcim, ul. Wodna 12</p>
+                </div>
+            </div>
+            <div>
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="top-socials" id="topSocials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2026 Studnie Głębinowe Oświęcim | Profesjonalne wiercenia i pompy</p>
+        <p>Projekt i realizacja strony Paweł Adamski 2026</p>
+    </footer>    
+
+    <a href="https://wa.me/48123456789?text=Witam!%20Chciałbym%20otrzymać%20informację%20o%20studni%20głębinowej." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="src/script.js"></script>
+    
+</body>
+</html>

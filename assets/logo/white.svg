@@ -1,0 +1,26 @@
+<svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- OUTER CIRCLE -->
+  <circle cx="50" cy="50" r="46" stroke="#ffffff" stroke-width="2" fill="none"></circle>
+
+  <!-- GROUND LINE -->
+  <path d="M22 55 H78" stroke="#ffffff" stroke-width="2" opacity="0.7"></path>
+
+  <!-- BOREHOLE PIPE -->
+  <rect x="45" y="28" width="10" height="40" stroke="#ffffff" stroke-width="2" fill="none"></rect>
+
+  <!-- DRILL SHAFT -->
+  <path d="M50 20 L50 72" stroke="#ffffff" stroke-width="2" opacity="0.85"></path>
+
+  <!-- WATER LAYER -->
+  <path d="M20 62 C34 56, 46 66, 58 62 C70 58, 76 62, 80 62" stroke="#ffffff" stroke-width="2" fill="none"></path>
+
+  <!-- SECOND WAVE -->
+  <path d="M22 70 C36 66, 48 74, 60 70 C70 66, 76 70, 78 70" stroke="#ffffff" stroke-width="1.6" fill="none" opacity="0.4"></path>
+
+  <!-- WATER DROPLET -->
+  <path d="M50 34
+           C47 39, 45 43, 50 48
+           C55 43, 53 39, 50 34Z" fill="#ffffff"></path>
+
+</svg>
