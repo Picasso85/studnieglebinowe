@@ -142,7 +142,6 @@ body.light .navbar.shrink {
     transition: all 0.2s ease;
 }
 
-/* W light mode – zmiana koloru logo (bez użycia content na img) */
 body.light .logo img {
     color: var(--line);
     background-color: var(--accent-dark);
@@ -244,19 +243,13 @@ body.light .logo img {
     top: 47rem;
     left: 50%;
     transform: translateX(-50%);
-    
     display: flex;
     gap: 10px;
     justify-content: center;
-
     z-index: 999;
-
     opacity: 1;
     transform-origin: top center;
-    transition: 
-        opacity 0.35s ease,
-        transform 0.35s ease,
-        filter 0.35s ease;
+    transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
 }
 
 .top-socials a {
@@ -275,20 +268,18 @@ body.light .logo img {
     transform: scale(1.2);
 }
 
-/* UKRYWANIE */
 .top-socials.hide {
     opacity: 0;
     transform: translateX(-50%) translateY(-30px) scale(0.85);
     filter: blur(6px);
     pointer-events: none;
-
-    /* wizualnie “wchodzą pod navbar” */
     z-index: 900;
 }
 
 body.light .top-socials a {
     background: var(--accent);
 }
+
 /* =========================
    HERO
 ========================= */
@@ -317,7 +308,6 @@ body.light .top-socials a {
     color: var(--text-dim);
 }
 
-/* BUTTON */
 .hero-btn {
     margin-top: 2rem;
     display: inline-block;
@@ -341,7 +331,7 @@ body.light .top-socials a {
 ========================= */
 .section {
     position: relative;
-    padding: 8rem 2rem; /* było 6rem → teraz więcej przestrzeni */
+    padding: 8rem 2rem;
     max-width: 1400px;
     min-height: 100vh;
     margin: 0 auto;
@@ -364,13 +354,11 @@ body.light .top-socials a {
     filter: blur(0);
 }
 
-/* Opóźnienia dla kart – działają, gdy sekcja jest aktywna */
 .section.active .service-card:nth-child(1) { transition-delay: 0.1s; }
 .section.active .service-card:nth-child(2) { transition-delay: 0.2s; }
 .section.active .service-card:nth-child(3) { transition-delay: 0.3s; }
 .section.active .service-card:nth-child(4) { transition-delay: 0.4s; }
 
-/* TITLE */
 .section-title {
     text-align: center;
     font-size: 2.5rem;
@@ -389,7 +377,6 @@ body.light .top-socials a {
     color: transparent;
 }
 
-/* Dekoracyjna linia nad sekcją */
 .section::before {
     content: "";
     position: absolute;
@@ -429,7 +416,6 @@ body.light .top-socials a {
     border-color: rgba(42, 169, 255, 0.35);
 }
 
-/* ikona */
 .service-card i {
     font-size: 2.2rem;
     color: var(--accent);
@@ -442,14 +428,12 @@ body.light .top-socials a {
     transform: translateY(-2px) scale(1.05);
 }
 
-/* tytuł */
 .service-card h3 {
     font-size: 1.4rem;
     margin-bottom: 10px;
     font-weight: 700;
 }
 
-/* opis */
 .service-card p {
     color: var(--text-dim);
     font-size: 0.95rem;
@@ -457,7 +441,6 @@ body.light .top-socials a {
     margin-bottom: 14px;
 }
 
-/* lista */
 .service-card ul {
     list-style: none;
     display: flex;
@@ -490,7 +473,6 @@ body.light .top-socials a {
     transform: translateX(4px);
 }
 
-/* cena */
 .price-badge {
     display: inline-block;
     margin-top: 18px;
@@ -509,15 +491,13 @@ body.light .top-socials a {
     color: white;
 }
 
-/* klik – subtelna reakcja */
 .service-card:active {
     transform: translateY(-6px) scale(0.99);
 }
 
 /* =========================
-   REALIZACJE – KONTENER I KARTY (POPRAWA UKŁADU)
+   REALIZACJE – KONTENER I KARTY
 ========================= */
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -538,7 +518,7 @@ body.light .top-socials a {
                 border-color 0.2s;
     will-change: transform;
     display: flex;
-    flex-direction: column;  /* WYMIUSZA UKŁAD PIONOWY */
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -547,7 +527,6 @@ body.light .top-socials a {
     border-color: rgba(42, 169, 255, 0.6);
 }
 
-/* Światło */
 .project-card::before {
     content: "";
     position: absolute;
@@ -567,7 +546,6 @@ body.light .top-socials a {
     opacity: 1;
 }
 
-/* Ramka */
 .project-card::after {
     content: "";
     position: absolute;
@@ -588,13 +566,12 @@ body.light .top-socials a {
     opacity: 0.4;
 }
 
-/* Obrazek – stała wysokość, nie zmniejsza się */
 .project-image {
     height: 220px;
     width: 100%;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0;  /* ZAPOBIEGA ZMNIEJSZANIU */
+    flex-shrink: 0;
     transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     will-change: transform;
 }
@@ -603,16 +580,14 @@ body.light .top-socials a {
     transform: scale(1.05);
 }
 
-/* Treść – wypełnia pozostałą przestrzeń */
 .project-content {
     position: relative;
     z-index: 2;
     padding: 24px 22px;
     flex-grow: 1;
-    background: inherit; /* zachowuje tło karty */
+    background: inherit;
 }
 
-/* Reszta stylów (h3, p, ul, tagi) bez zmian */
 .project-content h3 {
     font-size: 1.4rem;
     margin-bottom: 12px;
@@ -676,7 +651,7 @@ body.light .top-socials a {
 }
 
 /* =========================
-   OPINIE (TESTIMONIALS)
+   OPINIE
 ========================= */
 .testimonials-grid {
     display: grid;
@@ -903,11 +878,27 @@ footer {
 }
 
 /* =========================
-   RESPONSYWNOSĆ – MOBILE
+   RESPONSYWNOSĆ – POPRAWIONA
 ========================= */
 
-/* Tablety i średnie ekrany (poniżej 800px) */
+/* Tablety i średnie ekrany (800px i mniej) */
 @media (max-width: 800px) {
+    .navbar-inner {
+        padding: 0.5rem 1rem;
+    }
+    .menu-icon {
+        display: block;
+        margin-left: auto;
+        font-size: 1.8rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .theme-toggle {
+        margin-left: 0.5rem;
+    }
+    .navbar {
+        overflow: visible;
+    }
     .nav-links {
         position: fixed;
         top: 70px;
@@ -923,62 +914,179 @@ footer {
         gap: 1.5rem;
         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
     }
-
     .nav-links a {
         font-size: 1.2rem;
         padding: 0.5rem 0;
     }
-
     .nav-links.open {
         right: 0;
     }
-
-    .logo span {
-        font-size: 0.8rem;
-    }
-
-    .menu-icon {
-        display: block;
-        margin-left: auto;  /* Wymusza przesunięcie na prawą stronę */
-        font-size: 1.8rem;
-        cursor: pointer;
-        line-height: 1;
-    }
-
-    .navbar-inner {
-        padding: 0.5rem 1rem;
-    }
-
-    .theme-toggle {
-        margin-left: 0.5rem;  /* Odstęp między przyciskiem motywu a hamburgerem */
-    }
-
-    /* Zapewnia, że rozwijane menu nie będzie przycięte */
-    .navbar {
-        overflow: visible;
-    }
-
     .hero-content h1 {
         font-size: 2.5rem;
     }
-
     .contact-grid {
         grid-template-columns: 1fr;
     }
-
     .section {
         padding: 4rem 1.5rem;
     }
-
     .section-title {
         font-size: 2rem;
     }
+    /* Poprawa kart realizacji na tabletach */
+    .projects-grid {
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .project-image {
+        height: 190px;
+    }
+    .project-content {
+        padding: 18px 16px;
+    }
+    .project-content h3 {
+        font-size: 1.3rem;
+    }
+    .project-content p {
+        font-size: 0.9rem;
+    }
+    .project-tags span {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+    /* Poprawa siatki usług */
+    .cards-grid {
+        gap: 20px;
+    }
+    .service-card {
+        padding: 20px;
+    }
+    .service-card h3 {
+        font-size: 1.25rem;
+    }
 }
 
-/* Telefony (poniżej 500px) */
-/* Bardzo małe telefony (poniżej 400px) */
+/* Telefony średnie (500px i mniej) – DODANY BRAKUJĄCY BREAKPOINT */
+@media (max-width: 500px) {
+    .navbar-inner {
+        padding: 0.5rem 0.8rem;
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
+    .logo img {
+        width: 32px;
+        height: 32px;
+    }
+    .menu-icon {
+        font-size: 1.6rem;
+    }
+    .theme-toggle {
+        padding: 0.3rem 0.6rem;
+        font-size: 1rem;
+    }
+    .hero {
+        padding: 1.5rem;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+    }
+    .section {
+        padding: 3rem 1rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    /* Karty usług */
+    .cards-grid {
+        gap: 16px;
+    }
+    .service-card {
+        padding: 18px;
+        border-radius: 22px;
+    }
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+    .service-card p {
+        font-size: 0.9rem;
+    }
+    .service-card ul li {
+        font-size: 0.85rem;
+    }
+    .price-badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    /* Karty realizacji */
+    .projects-grid {
+        gap: 16px;
+        grid-template-columns: 1fr; /* jedna kolumna na małych telefonach */
+    }
+    .project-image {
+        height: 180px;
+    }
+    .project-content {
+        padding: 16px 14px;
+    }
+    .project-content h3 {
+        font-size: 1.25rem;
+    }
+    .project-content p {
+        font-size: 0.85rem;
+    }
+    .project-content ul li {
+        font-size: 0.8rem;
+    }
+    .project-tags span {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+    /* Formularz */
+    .contact-form {
+        padding: 1.5rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    .contact-form button {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+    /* Mapa */
+    #map {
+        min-height: 280px;
+    }
+    /* WhatsApp */
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+        bottom: 16px;
+        right: 16px;
+    }
+    /* Opinie i FAQ */
+    .testimonial-card {
+        padding: 20px 18px;
+    }
+    .faq-item {
+        padding: 18px;
+    }
+}
+
+/* Bardzo małe telefony (poniżej 400px) – DOSTOSOWANE DO NOWYCH USTAWIEŃ */
 @media (max-width: 400px) {
-    /* Ogólne sekcje */
     .section {
         padding: 2rem 0.8rem;
     }
@@ -986,8 +1094,6 @@ footer {
         font-size: 1.4rem;
         margin-bottom: 1.5rem;
     }
-
-    /* Hero */
     .hero-content h1 {
         font-size: 1.7rem;
     }
@@ -998,20 +1104,16 @@ footer {
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
     }
-
-    /* Logo i nawigacja */
     .logo {
         font-size: 1rem;
     }
     .menu-icon {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
     .theme-toggle {
-        padding: 0.3rem 0.6rem;
-        font-size: 1rem;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.9rem;
     }
-
-    /* Karty usług (oferta) */
     .service-card {
         padding: 14px;
         border-radius: 18px;
@@ -1030,46 +1132,39 @@ footer {
         font-size: 0.75rem;
         padding: 4px 10px;
     }
-
-    /* GALERIA (realizacje) – POPRAWA KART */
     .projects-grid {
-        gap: 16px;
-    }
-    .project-card {
-        border-radius: 20px;
+        gap: 14px;
     }
     .project-image {
-        height: 160px;  /* mniejsza wysokość na małym ekranie */
+        height: 160px;
     }
     .project-content {
-        padding: 16px 14px;
+        padding: 14px 12px;
     }
     .project-content h3 {
-        font-size: 1.2rem;
-        margin-bottom: 8px;
+        font-size: 1.15rem;
+        margin-bottom: 6px;
     }
     .project-content p {
-        font-size: 0.85rem;
-        margin-bottom: 12px;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
     }
     .project-content ul li {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         margin-bottom: 4px;
     }
     .project-tags span {
-        font-size: 0.7rem;
-        padding: 3px 8px;
+        font-size: 0.65rem;
+        padding: 2px 6px;
     }
-
-    /* Pozostałe sekcje */
     .testimonial-card {
-        padding: 18px 16px;
+        padding: 16px 14px;
     }
     .testimonial-card p {
         font-size: 0.85rem;
     }
     .faq-item {
-        padding: 16px;
+        padding: 14px;
     }
     .faq-item h3 {
         font-size: 1rem;
@@ -1077,10 +1172,8 @@ footer {
     .faq-item p {
         font-size: 0.85rem;
     }
-
-    /* Formularz kontaktowy */
     .contact-form {
-        padding: 1.2rem;
+        padding: 1rem;
     }
     .contact-form input,
     .contact-form textarea {
@@ -1094,14 +1187,10 @@ footer {
     .contact-info p {
         font-size: 0.85rem;
     }
-
-    /* Mapa */
     #map {
-        min-height: 250px;
-        border-radius: 24px;
+        min-height: 220px;
+        border-radius: 20px;
     }
-
-    /* WhatsApp */
     .whatsapp-btn {
         width: 46px;
         height: 46px;
@@ -1109,15 +1198,13 @@ footer {
         bottom: 12px;
         right: 12px;
     }
-
-    /* Stopka */
     footer {
-        padding: 1.5rem;
-        font-size: 0.8rem;
+        padding: 1.2rem;
+        font-size: 0.75rem;
     }
 }
 
-/* Dodatkowe usprawnienia dla ekranów dotykowych (brak efektów hover) */
+/* Dotykowe – wyłączenie efektów hover */
 @media (hover: none) and (pointer: coarse) {
     .gallery-item::before,
     .gallery-caption,
